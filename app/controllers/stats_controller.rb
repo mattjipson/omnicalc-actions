@@ -51,7 +51,15 @@ class StatsController < ApplicationController
     # ====
     
     @current_mode = @sorted_numbers.at(0)
-    @mode = "Replace this string with your answer"
+    
+    @sorted_numbers.each do |num|
+      if @sorted_numbers.count(num) > @sorted_numbers.count(@current_mode)
+        @current_mode = num
+      end  
+
+    end
+    
+    @mode = @current_mode
     
     #2 methods
     #  hash method
